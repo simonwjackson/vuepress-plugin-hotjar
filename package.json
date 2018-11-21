@@ -1,0 +1,10 @@
+{
+  "name": "vuepress-plugin-hotjar",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Hotjar heatmap tracking plugin for VuePress",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
