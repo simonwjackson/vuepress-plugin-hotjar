@@ -7,7 +7,7 @@
 module.exports = {
   plugins: {
     'vuepress-plugin-hotjar': {
-      id: 72366
+      id: 12345 // Hotjar site id here
     },
   }
 }
