@@ -4,7 +4,7 @@ module.exports = (options = {}, context) => {
   return {
     define() {
       return {
-        HOTJAR_ID: options.id
+        GA_ID: options.id
       }
     },
 
