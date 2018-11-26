@@ -1,4 +1,4 @@
-# vuepress-plugin-hotjar
+# vuepress-plugin-google-analytics
 
 ## Usage
 
@@ -6,8 +6,8 @@
 ```js
 module.exports = {
   plugins: {
-    'vuepress-plugin-hotjar': {
-      id: 12345 // Hotjar site id here
+    'vuepress-plugin-google-analytics': {
+      id: 12345 // Analytics code here
     },
   }
 }

@@ -4,37 +4,23 @@ export default ({
   router, // the router instance for the app
   siteData // site metadata
 }) => {
-  if (process.env.NODE_ENV === 'production' && HOTJAR_ID && typeof window !== 'undefined') {
-    (function (h, o, t, j, a, r) {
-      h.hj = h.hj || function () {
-        (h.hj.q = h.hj.q || []).push(arguments)
-      };
-      h._hjSettings = {
-        hjid: HOTJAR_ID,
-        hjsv: 6
-      };
-      a = o.getElementsByTagName('head')[0];
-      r = o.createElement('script');
-      r.async = 1;
-      r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
-      a.appendChild(r);
-    })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+  if (process.env.NODE_ENV === 'production' && GA_ID && typeof window !== 'undefined') {
+    (function (d, script) {
+      script = d.createElement('script');
+      script.type = 'text/javascript';
+      script.async = true;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
 
-    // ga('create', GA_ID, 'auto')
-    // ga('send', 'pageview')
+      d.body.appendChild(script);
 
-    // router.afterEach(function (to) {
-    //   ga('set', 'page', to.fullPath)
-    //   ga('send', 'pageview')
-    // })
+      window.dataLayer = window.dataLayer || [];
 
-    // (function(h,o,t,j,a,r){
-    //     h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-    //     h._hjSettings={hjid:72366,hjsv:6};
-    //     a=o.getElementsByTagName('head')[0];
-    //     r=o.createElement('script');r.async=1;
-    //     r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-    //     a.appendChild(r);
-    // })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      gtag('js', new Date());
+      gtag('config', GA_ID);
+    }(document));
   }
 }
